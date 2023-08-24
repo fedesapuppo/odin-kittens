@@ -42,6 +42,10 @@ class KittensController < ApplicationController
 
   def edit
     @kitten = Kitten.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @kitten } # Handle JSON response
+    end
   end
 
   private

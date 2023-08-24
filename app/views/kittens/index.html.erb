@@ -2,8 +2,11 @@
 <ul>
   <% @kittens.each do |kitten| %>
     <li>
-      <%= kitten.name %>
-      <%= link_to 'Delete', kitten, method: :delete, data: { confirm: 'Are you sure you want to delete this kitten?' } %>
+      <%= link_to kitten.name, kitten_path(kitten) %>
+      <%= form_with(model: kitten, method: :delete, data: { confirm: 'Are you sure you want to delete this kitten?' }) do |form| %>
+        <%= form.submit 'Delete' %>
+      <% end %>
     </li>
   <% end %>
 </ul>
+<%= link_to 'Add New Kitten', new_kitten_path %>
