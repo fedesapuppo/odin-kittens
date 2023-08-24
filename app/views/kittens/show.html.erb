@@ -2,3 +2,4 @@
 <p>Age: <%= @kitten.age %></p>
 <p>Cuteness: <%= @kitten.cuteness %></p>
 <p>Softness: <%= @kitten.softness %></p>
+<%= link_to 'Delete', @kitten, method: :delete, data: { confirm: 'Are you sure you want to delete this kitten?' } %>
